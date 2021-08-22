@@ -16,3 +16,11 @@ const showcaseTitle = TextStyle(
   color: primaryTextColor,
   letterSpacing: 2.0,
 );
+
+const itemTextStyle = TextStyle(
+  fontSize: 12,
+  fontFamily: 'Hanuman',
+  fontWeight: FontWeight.w900,
+  color: Color(0xFF333333),
+  letterSpacing: 1.5,
+);
