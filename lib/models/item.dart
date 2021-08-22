@@ -80,4 +80,24 @@ class Item {
       this._itemSizes = sizes;
     }
   }
+
+  String getItemName() {
+    return _itemName;
+  }
+
+  String getImagePath() {
+    return _itemImagePath;
+  }
+
+  String getItemDescription() {
+    return _itemDescription;
+  }
+
+  double getItemPrice() {
+    return _itemPrice;
+  }
+
+  List<String> getItemSizes() {
+    return _itemSizes;
+  }
 }
