@@ -48,7 +48,20 @@ class Item {
     }
   }
 
-  List<String> itemSizes = ['S', 'M', 'L', 'Xl', 'XXL', 'XXXL'];
+  List<String> itemSizes = [
+    'S',
+    'M',
+    'L',
+    'XL',
+    'XXL',
+    'XXXL',
+    '30',
+    '32',
+    '34',
+    '36',
+    '38',
+    '40'
+  ];
 
   void setItemSizes(List<String> sizes) {
     bool sizeAccepted = false;

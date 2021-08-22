@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:urban_outfits/dummy_data/dummy_data.dart';
 import 'package:urban_outfits/utilities/utilities.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,6 +21,10 @@ class _HomePageState extends State<HomePage> {
                 style: showcaseTitle,
               ),
             ),
+          ),
+          GridView.count(
+            crossAxisCount: 2,
+            children: items.map((item) => Card()).toList(),
           ),
         ],
       ),
