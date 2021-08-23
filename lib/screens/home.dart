@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:urban_outfits/dummy_data/dummy_data.dart' as dummy;
 import 'package:urban_outfits/utilities/utilities.dart';
+import 'package:urban_outfits/screens/itemScreen.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -36,40 +37,52 @@ class _HomePageState extends State<HomePage> {
             mainAxisSpacing: 12,
             crossAxisSpacing: 28,
             children: dummy.items
-                .map((item) => Card(
-                      elevation: 0,
-                      child: Column(
-                        children: <Widget>[
-                          Expanded(
-                            child: Container(
-                                margin: EdgeInsets.only(bottom: 15),
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  borderRadius: BorderRadius.circular(16),
-                                  image: DecorationImage(
-                                      image: AssetImage(item.getImagePath()),
-                                      fit: BoxFit.cover),
-                                )),
-                          ),
-                          Container(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '${item.getItemName()}',
-                                  style: itemTextStyle,
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  '\$${item.getItemPrice().toStringAsFixed(2)}',
-                                  style: itemTextStyle,
-                                ),
-                              ],
+                .map((item) => GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return ItemScreen(
+                            item: item,
+                          );
+                        }));
+
+                        // print('Item ${item.getItemName()} pressed');
+                      },
+                      child: Card(
+                        elevation: 0,
+                        child: Column(
+                          children: <Widget>[
+                            Expanded(
+                              child: Container(
+                                  margin: EdgeInsets.only(bottom: 15),
+                                  decoration: BoxDecoration(
+                                    color: Colors.transparent,
+                                    borderRadius: BorderRadius.circular(16),
+                                    image: DecorationImage(
+                                        image: AssetImage(item.getImagePath()),
+                                        fit: BoxFit.cover),
+                                  )),
                             ),
-                          ),
-                        ],
+                            Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${item.getItemName()}',
+                                    style: itemTextStyle,
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    '\$${item.getItemPrice().toStringAsFixed(2)}',
+                                    style: itemTextStyle,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ))
                 .toList(),
@@ -79,21 +92,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-// Container(
-//   decoration: BoxDecoration(
-//     color: Colors.transparent,
-//     borderRadius: BorderRadius.circular(10),
-//     image: DecorationImage(
-//         image: AssetImage(items.getItemImagePath()),
-//         fit: BoxFit.cover),
-//   ),
-// ),
-// Container(
-//                   // height: 200,
-//                   // width: 150,
-//                   decoration: BoxDecoration(
-//                     image: DecorationImage(
-//                       image: AssetImage(item.getImagePath()),
-//                     ),
-//                   ),
-//                 ),

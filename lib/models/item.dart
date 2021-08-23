@@ -1,4 +1,5 @@
 class Item {
+  // int _itemID;
   String _itemName;
   String _itemImagePath;
   String _itemDescription;
@@ -7,12 +8,21 @@ class Item {
 
   Item(String _itemName, String _itemImagePath, String _itemDescription,
       double _itemPrice, List<String> _itemSizes) {
+    // setItemID(_itemID);
     setItemName(_itemName);
     setItemImagePath(_itemImagePath);
     setItemDescription(_itemDescription);
     setItemPrice(_itemPrice);
     setItemSizes(_itemSizes);
   }
+
+  // void setItemID(int itemID) {
+  //   if (_itemID <= 0) {
+  //     throw new ArgumentError('Item ID should be greater that 0');
+  //   } else {
+  //     this._itemID = itemID;
+  //   }
+  // }
 
   void setItemName(String itemName) {
     if (itemName.length <= 2) {
@@ -80,6 +90,10 @@ class Item {
       this._itemSizes = sizes;
     }
   }
+
+  // int getItemID() {
+  //   return _itemID;
+  // }
 
   String getItemName() {
     return _itemName;

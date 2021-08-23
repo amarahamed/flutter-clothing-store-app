@@ -24,3 +24,26 @@ const itemTextStyle = TextStyle(
   color: Color(0xFF333333),
   letterSpacing: 1.5,
 );
+
+const itemPriceTextStyle = TextStyle(
+  fontSize: 18,
+  fontFamily: 'Hanuman',
+  fontWeight: FontWeight.w900,
+  color: Colors.black,
+  letterSpacing: 1.6,
+);
+
+const itemNameTextStyle = TextStyle(
+  fontSize: 16,
+  fontFamily: 'Hanuman',
+  color: Colors.black,
+  fontWeight: FontWeight.w900,
+  letterSpacing: 1.6,
+);
+
+const itemDecsriptionTextStyle = TextStyle(
+  fontSize: 12,
+  fontFamily: 'Hanuman',
+  color: Colors.black,
+  letterSpacing: 1.0,
+);
