@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:urban_outfits/dummy_data/dummy_data.dart' as dummy;
 import 'package:urban_outfits/utilities/utilities.dart';
 import 'package:urban_outfits/screens/itemScreen.dart';
@@ -11,6 +12,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    double mainAxis = MediaQuery.of(context).size.width;
+    double crossAxis = MediaQuery.of(context).size.height;
+    timeDilation = 1.5;
     return CustomScrollView(
       slivers: <Widget>[
         SliverList(
@@ -30,12 +34,13 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         SliverPadding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+          padding: EdgeInsets.symmetric(horizontal: 10),
           sliver: SliverGrid.count(
-            childAspectRatio: (150 / 280),
+            // childAspectRatio: (120 / 280),
+            childAspectRatio: (crossAxis * 0.5 / mainAxis * 0.6),
             crossAxisCount: 2,
             mainAxisSpacing: 12,
-            crossAxisSpacing: 28,
+            crossAxisSpacing: 24,
             children: dummy.items
                 .map((item) => GestureDetector(
                       onTap: () {
@@ -53,15 +58,19 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           children: <Widget>[
                             Expanded(
-                              child: Container(
-                                  margin: EdgeInsets.only(bottom: 15),
-                                  decoration: BoxDecoration(
-                                    color: Colors.transparent,
-                                    borderRadius: BorderRadius.circular(16),
-                                    image: DecorationImage(
+                              child: Hero(
+                                tag: item.getImagePath(),
+                                child: Container(
+                                    margin: EdgeInsets.only(bottom: 15),
+                                    decoration: BoxDecoration(
+                                      color: Colors.transparent,
+                                      borderRadius: BorderRadius.circular(16),
+                                      image: DecorationImage(
                                         image: AssetImage(item.getImagePath()),
-                                        fit: BoxFit.cover),
-                                  )),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    )),
+                              ),
                             ),
                             Container(
                               child: Column(
