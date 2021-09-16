@@ -106,6 +106,17 @@ class _ItemDetailsState extends State<ItemDetails> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
+                      Center(
+                        child: Container(
+                          margin: EdgeInsets.only(top: 2.5),
+                          width: MediaQuery.of(context).size.width * 0.3,
+                          height: 4,
+                          decoration: BoxDecoration(
+                            color: Colors.black45,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
                       SizedBox(
                         height: 16,
                       ),

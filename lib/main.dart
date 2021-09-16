@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: primaryColor,
         appBar: AppBar(
@@ -30,6 +31,12 @@ class MyApp extends StatelessWidget {
             IconButton(
                 icon: Icon(
                   FontAwesomeIcons.userAlt,
+                  color: primaryTextColor,
+                ),
+                onPressed: () {}),
+            IconButton(
+                icon: Icon(
+                  FontAwesomeIcons.search,
                   color: primaryTextColor,
                 ),
                 onPressed: () {}),
