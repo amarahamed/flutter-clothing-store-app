@@ -1,6 +1,6 @@
 # URBAN_OUTFITS - CLOTHING STORE APP
 
-![](assets/images/home.png)
+![](assets/images/readme-1.png)
 
 A new Flutter project.
 
